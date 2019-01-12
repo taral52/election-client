@@ -35,7 +35,6 @@ export class AppComponent {
 	}
 
 	_getCandidates(){
-		debugger;
 		let that = this;
 		this.ethcontractService.getCandidates()
 		.then(function(candidateList){

@@ -35,7 +35,6 @@ export class EthcontractService {
 	}
 
 	getCandidates(){
-		debugger;
 		let electionInstance;
 		let candidateList = [];
 		let electionContract = TruffleContract(tokenAbi);
