@@ -16,5 +16,6 @@ Steps
 			  setImmediate: false
 			},
 5. module not found error can't resolve 'xmlhttprequest' ethers\utils : change require('xmlhttprequest') to require('xhr2') in node_modules\ethers\utils\web.js
+-- below steps might not needed. Only run if you get errors
 6. run npm install web3@0.20.5
 7. npm install truffle-contract
