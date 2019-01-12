@@ -45,13 +45,13 @@ export class EthcontractService {
       		return instance.candidatesCount();
       	})
       	.then(function(candidatesCount){
-      		for (let i = 1; i <= candidatesCount; i++) {
-      			electionInstance.candidates(i)
-      			.then(function(candidate){
-      				candidateList.push(candidate);
-      			})
-      		}
-      		return candidateList;
+      		// for (let i = 1; i <= candidatesCount; i++) {
+      		// 	electionInstance.candidates(i)
+      		// 	.then(function(candidate){
+      		// 		candidateList.push(candidate);
+      		// 	})
+      		// }
+      		return candidatesCount;
       	})
 	}
 }

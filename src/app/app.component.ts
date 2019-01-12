@@ -37,8 +37,8 @@ export class AppComponent {
 	_getCandidates(){
 		let that = this;
 		this.ethcontractService.getCandidates()
-		.then(function(candidateList){
-			that.candidateList = candidateList || 0;
+		.then(function(candidatesCount){
+			that.candidatesCount = candidatesCount || 0;
 		})
 	}
 }
