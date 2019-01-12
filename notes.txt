@@ -2,9 +2,7 @@ Steps
 1. clone election and election client from git hub using git clone URL
 2. run truffle migrate for election
 3. run npm install for election-client
-4. run npm install web3@0.20.5
-5. npm install truffle-contract
-6. change node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\webpack-configs\browser.js
+4. change node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\webpack-configs\browser.js
 	node: false to
 	node: {
 			  fs: 'empty',
@@ -17,4 +15,6 @@ Steps
 			  clearImmediate: false,
 			  setImmediate: false
 			},
-7. module not found error can't resolve 'xmlhttprequest' ethers\utils : change require('xmlhttprequest') to require('xhr2') in node_modules\ethers\utils\web.js
+5. module not found error can't resolve 'xmlhttprequest' ethers\utils : change require('xmlhttprequest') to require('xhr2') in node_modules\ethers\utils\web.js
+6. run npm install web3@0.20.5
+7. npm install truffle-contract

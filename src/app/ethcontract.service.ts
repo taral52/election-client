@@ -5,7 +5,7 @@ import * as TruffleContract from 'truffle-contract';
 declare let require: any;
 declare let window: any;
 
-let tokenAbi = require('../../../../election/build/contracts/Election.json');
+let tokenAbi = require('../../../election/build/contracts/Election.json');
 
 
 @Injectable({
