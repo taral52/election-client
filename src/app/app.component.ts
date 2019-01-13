@@ -21,10 +21,11 @@ export class AppComponent {
 	}
 	initAndDisplayAccount = () => {
 		this._getAccountInfo();
+		this._getCandidatesCount();
 		this._getCandidates();
 	};
 
-	_getAccountInfo (){
+	_getAccountInfo(){
 		let that = this;
 		this.ethcontractService.getAccountInfo()
 		.then(function(address){
@@ -34,11 +35,28 @@ export class AppComponent {
 		});
 	}
 
+	_getCandidatesCount(){
+		let that = this;
+		this.ethcontractService.getCandidatesCount()
+		.then(function(candidatesCount){
+			that.candidatesCount = candidatesCount || 0;
+		})
+	}
+
 	_getCandidates(){
 		let that = this;
 		this.ethcontractService.getCandidates()
-		.then(function(candidatesCount){
-			that.candidatesCount = candidatesCount || 0;
+		.then(function(list){
+			let temp = [];
+			let tempObj;
+			for (let i in list) {
+				tempObj = {};
+				tempObj['id'] = list[i][0].toNumber();
+				tempObj['name'] = list[i][1].toString();
+				tempObj['voteCount'] = list[i][2].toNumber();
+				temp.push(tempObj); 
+			}
+			that.candidateList = temp;
 		})
 	}
 }

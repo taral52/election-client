@@ -5,5 +5,13 @@
   </h1>
   <div><span> Account: </span>{{ transferFrom }}</div>
   <div><span> Total Candidates: </span>{{ candidatesCount }}</div>
+  <div>
+  	<ul>
+	  <li *ngFor="let candidate of candidateList; let i = index">
+	    {{i}} : {{candidate.name}}
+	  </li>
+	</ul>  	
+  </div>
+
 </div>
 
