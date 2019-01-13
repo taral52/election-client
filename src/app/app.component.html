@@ -6,12 +6,20 @@
   <div><span> Account: </span>{{ transferFrom }}</div>
   <div><span> Total Candidates: </span>{{ candidatesCount }}</div>
   <div>
-  	<ul>
-	  <li *ngFor="let candidate of candidateList; let i = index">
-	    {{i}} : {{candidate.name}}
-	  </li>
-	</ul>  	
-  </div>
-
+		<table class="table">
+			<thead>
+		  		<th>Id</th>
+		  		<th>Name</th>
+		  		<th>Vote Count</th>
+			</thead>
+			<tbody>
+				<tr *ngFor="let candidate of candidateList; let i = index">
+				    <td> {{ candidate.id }}</td>
+				    <td> {{ candidate.name }} </td>
+				    <td> {{ candidate.voteCount }} </td>
+		  		</tr>
+			</tbody>  		
+		</table>
+	</div>
 </div>
 
