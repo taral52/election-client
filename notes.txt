@@ -1,7 +1,7 @@
 Steps
 1. clone election and election client from git hub using git clone URL
 2. run truffle migrate for election
-3. run npm install for election-client
+3. run npm install(see cmd1 below) for election-client
 4. change node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\webpack-configs\browser.js
 	node: false to
 	node: {
@@ -19,3 +19,10 @@ Steps
 -- below steps might not needed. Only run if you get errors
 6. run npm install web3@0.20.5
 7. npm install truffle-contract
+
+-- npm install python
+-- npm install -g truffle@4.1.8
+-- npm install -g @angular/cli
+
+-- Error: Command failed: Python\Python37
+cmd1-- npm --add-python-to-path='true' --debug install --global windows-build-tools
