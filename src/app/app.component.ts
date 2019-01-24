@@ -16,23 +16,34 @@ export class AppComponent {
 	remarks='';
 	candidatesCount = 0;
 	candidateList = [];
+	contractAddress = '0x0';
 	constructor( private ethcontractService: EthcontractService ){
 		this.initAndDisplayAccount();
 	}
 	initAndDisplayAccount = () => {
 		this._getAccountInfo();
+		this._getLoggedInAccountInfo();
 		this._getCandidatesCount();
 		this._getCandidates();
+		this.ethcontractService.listenForEvents();
 	};
 
 	_getAccountInfo(){
 		let that = this;
 		this.ethcontractService.getAccountInfo()
 		.then(function(address){
-			that.transferFrom = address || "Transfer Account";
+			that.contractAddress = address || "Transfer Account";
 		}).catch(function(error){
 			console.log(error);
 		});
+	}
+
+	_getLoggedInAccountInfo(){
+		let that = this;
+		this.ethcontractService.getLoggedInAccountInfo()
+		.then(function(account){
+			that.transferFrom = account;
+		})
 	}
 
 	_getCandidatesCount(){
@@ -59,4 +70,13 @@ export class AppComponent {
 			that.candidateList = temp;
 		})
 	}
+
+	addVote(id: number){
+		let that = this;
+		this.ethcontractService.addVote(id, that.transferFrom)
+		.then(function(response){
+			debugger;
+		})
+	}
+
 }

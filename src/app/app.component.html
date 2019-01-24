@@ -1,10 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <div><span> Account: </span>{{ transferFrom }}</div>
-  <div><span> Total Candidates: </span>{{ candidatesCount }}</div>
+<!--   <h1>
+   {{ title }} Application
+  </h1> -->  
   <div>
 		<table class="table">
 			<thead>
@@ -17,9 +15,12 @@
 				    <td> {{ candidate.id }}</td>
 				    <td> {{ candidate.name }} </td>
 				    <td> {{ candidate.voteCount }} </td>
+				    <td> <button class="btn btn-outline-secondary" type="button" (click)="addVote(candidate.id)" > Vote </button> </td>
 		  		</tr>
 			</tbody>  		
 		</table>
 	</div>
+	<div><span> Account: </span>{{ transferFrom }}</div>
+  	<div><span> Total Candidates: </span>{{ candidatesCount }}</div>
 </div>
 

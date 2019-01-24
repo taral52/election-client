@@ -4,6 +4,8 @@ import * as TruffleContract from 'truffle-contract';
 import {forkJoin} from 'rxjs';
 import {Observable} from 'rxjs';
 
+
+
 declare let require: any;
 declare let window: any;
 
@@ -77,4 +79,44 @@ export class EthcontractService {
       })
     })
   }
+
+  getLoggedInAccountInfo(){
+  	return new Promise((resolve, reject) => {
+  		window.web3.eth.getCoinbase(function(err, account){
+  			if(err === null){
+  				return resolve(account);
+  			}
+  		})
+  	})
+  }
+
+  addVote(id: number, transferForm: any){
+  	return new Promise((resolve, reject) => {
+  		let electionContract = TruffleContract(tokenAbi);
+    	electionContract.setProvider(this.web3Provider);
+  		electionContract.deployed()
+		  .then(function(instance){			
+			return instance;
+		  })
+		  .then(function(instance){
+		  	return instance.addVote(id, {from: transferForm})
+		  })
+		  .then(function(response){
+		  	debugger;
+		  }, function(e){
+		  	debugger;
+		  })
+  	})
+  }
+
+  	listenForEvents(){
+		let electionContract = TruffleContract(tokenAbi);
+		electionContract.setProvider(this.web3Provider);
+		electionContract.deployed()
+		.then(instance => {
+			instance.votedEvent({}, (err, ev) => {
+				console.log("Refresh.");
+			})
+		})
+	}
 }
